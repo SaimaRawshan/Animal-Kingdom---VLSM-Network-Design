@@ -89,7 +89,7 @@ Cisco 2960 Switch (IOS 15)
 
 **Assumptions**
 
-Base network address: 192.168.0.0/16
-Static IPs assigned to Lion subnet end devices and the main PC of each tribe
-All other end devices obtain addresses via DHCP
-Gigabit switch interfaces used on subnets with large host counts
+- Base network address: 192.168.0.0/16
+- Static IPs assigned to Lion subnet end devices and the main PC of each tribe
+- All other end devices obtain addresses via DHCP
+- Gigabit switch interfaces used on subnets with large host counts
