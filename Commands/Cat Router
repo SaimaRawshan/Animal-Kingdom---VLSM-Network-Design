@@ -1,0 +1,38 @@
+Router>en
+Router#erase startup-config
+Erasing the nvram filesystem will remove all configuration files! Continue? [confirm]y[OK]
+Router#reload
+Proceed with reload? [confirm]y
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+Router>en
+Router#conf t
+Router(config)#hostname Cat
+
+Cat(config-if)#int se1/0
+Cat(config-if)#ip address 192.168.12.154 255.255.255.252
+Cat(config-if)#no shut
+
+Cat(config-if)#in fa2/0
+Cat(config-if)#ip address 192.168.8.1 255.255.252.0
+Cat(config-if)#no shut
+Cat(config-if)#end
+Cat#copy running-config startup-config
+
+#DHCP
+Cat(config)#int Fa2/0
+Cat(config-if)#ip helper-address 192.168.12.142
+Cat(config-if)#end
+Cat#wr
+
+
+
+#Dynamic Routing
+Cat(config)#router rip
+Cat(config-router)#version 2
+Cat(config-router)#network 192.168.12.0
+Cat(config-router)#network 192.168.8.0
+Cat(config-router)#no auto-summary
+
+#Static Routing
+Cat(config)#ip route 192.168.12.128 255.255.255.240 se1/0
