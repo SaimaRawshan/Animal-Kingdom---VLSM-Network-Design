@@ -2,9 +2,17 @@
 
 A Cisco Packet Tracer network simulation implementing a hierarchical multi-router topology using Variable Length Subnet Masking (VLSM), static routing, RIPv2 dynamic routing, and centralized DHCP.
 
-**Network Overview**
-Base Address: 192.168.0.0/16
-RouterSubnetHostsSubnet MaskDog192.168.0.0/211201255.255.248.0Cat192.168.8.0/22801255.255.252.0Elephant192.168.12.0/25101255.255.255.128Lion192.168.12.128/288255.255.255.240WAN1 (L→E)192.168.12.144/302255.255.255.252WAN2 (E→D)192.168.12.148/302255.255.255.252WAN3 (E→C)192.168.12.152/302255.255.255.252
+**Base Address:** `192.168.0.0/16`
+
+| Router | Subnet | Hosts | Subnet Mask |
+|--------|--------|-------|-------------|
+| Dog | 192.168.0.0/21 | 1201 | 255.255.248.0 |
+| Cat | 192.168.8.0/22 | 801 | 255.255.252.0 |
+| Elephant | 192.168.12.0/25 | 101 | 255.255.255.128 |
+| Lion | 192.168.12.128/28 | 8 | 255.255.255.240 |
+| WAN1 (L→E) | 192.168.12.144/30 | 2 | 255.255.255.252 |
+| WAN2 (E→D) | 192.168.12.148/30 | 2 | 255.255.255.252 |
+| WAN3 (E→C) | 192.168.12.152/30 | 2 | 255.255.255.252 |
 
 **Topology**
 
