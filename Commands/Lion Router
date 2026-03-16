@@ -1,0 +1,27 @@
+Router>en
+Router#erase startup-config
+Erasing the nvram filesystem will remove all configuration files! Continue? [confirm]y[OK]
+Router#reload
+Proceed with reload? [confirm]y
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+Router>en
+Router#conf t
+Router(config)#hostname Lion
+
+
+Lion(config)#int fa2/0
+Lion(config-if)#ip address 192.168.12.129 255.255.255.240
+Lion(config-if)#no shut
+Lion(config-if)#int se0/0
+Lion(config-if)#ip address 192.168.12.145 255.255.255.252
+Lion(config-if)#no shut
+
+
+Lion(config-if)#end
+Lion#copy running-config startup-config
+
+Static Routing
+Lion(config)#ip route 192.168.12.0 255.255.255.128 se0/0
+Lion(config)#ip route 192.168.8.0 255.255.252.0 se0/0
+Lion(config)#ip route 192.168.0.0 255.255.248.0 se0/0
