@@ -1,6 +1,8 @@
 # Animal-Kingdom-VLSM-Network-Design
 
-A Cisco Packet Tracer network simulation implementing a hierarchical multi-router topology using Variable Length Subnet Masking (VLSM), static routing, RIPv2 dynamic routing, and centralized DHCP.
+A Cisco Packet Tracer network simulation implementing a hierarchical multi-router topology using Variable Length Subnet Masking (VLSM), static routing, RIPv2 dynamic routing, and centralized DHCP. 
+
+The VLSM tree was designed to accommodate all host requirements across each subnet. For visualization and connectivity testing in Cisco Packet Tracer, each router was configured with one main PC and two additional hosts.
 
 **Base Address:** `192.168.0.0/16`
 
