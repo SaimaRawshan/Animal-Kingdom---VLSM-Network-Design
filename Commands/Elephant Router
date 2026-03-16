@@ -1,0 +1,47 @@
+Router>en
+Router#erase startup-config
+Erasing the nvram filesystem will remove all configuration files! Continue? [confirm]y[OK]
+Router#reload
+Proceed with reload? [confirm]y
+Would you like to enter the initial configuration dialog? [yes/no]: n
+
+Router>en
+Router#conf t
+Router(config)#hostname Elephant
+
+Elephant(config-if)#int se0/0
+Elephant(config-if)#ip address 192.168.12.146 255.255.255.252
+Elephant(config-if)#no shut
+
+Elephant(config-if)#int fa2/0
+Elephant(config-if)#ip address 192.168.12.1 255.255.255.128
+Elephant(config-if)#no shut
+
+Elephant(config-if)#int se1/0
+Elephant(config-if)#ip address 192.168.12.149 255.255.255.252
+Elephant(config-if)#no shut
+
+Elephant(config-if)#int se4/0
+Elephant(config-if)#ip address 192.168.12.153 255.255.255.252
+Elephant(config-if)#no shut
+
+
+Elephant(config-if)#end
+Elephant#copy running-config startup-config
+
+
+#DHCP
+Elephant(config)#int Fa2/0
+Elephant(config-if)#ip helper-address 192.168.12.142
+Elephant(config-if)#end
+Elephant#wr
+
+#Dynamic Routing
+Elephant(config)#router rip
+Elephant(config-router)#version 2
+Elephant(config-router)#network 192.168.12.0
+Elephant(config-router)#no auto-summary
+Elephant(config-router)#end
+
+#Static Routing
+Elephant(config)#ip route 192.168.12.128 255.255.255.240 se0/0
